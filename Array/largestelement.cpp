@@ -1,32 +1,30 @@
-//for largest element of array
-int largest(int arr[], int n) {
+#include <iostream>
+using namespace std;
 
-    int largest=arr[0];
+// for largest element of array
+int largest(int arr[], int n)
+{
 
-    for (int i=0;i<n;i++){
+    int largest = arr[0];
 
-        if(arr[i]>largest){
+    for (int i = 0; i < n; i++)
+    {
 
-            largest=arr[i];
+        if (arr[i] > largest)
+        {
+
+            largest = arr[i];
         }
-    } 
+    }
     return largest;
 }
 
-//for second largest element
-  int print2largest(int arr[], int n) {
-        // code here
-  int lar = arr[0];
-        int lar2 = -1;
-        for(int i = 1; i < n; i++){
-            if(arr[i] > lar){
-               lar2 = lar;
-               lar = arr[i];
+int main()
+{
+    int arr[] = {5, 6, 8, 9, 15, 12};
+    int n = 6;
 
-            if(arr[i] < lar && arr[i] > lar2){
-                lar2 = arr[i];
-            }
-        }
-        return lar2;
-  }
-  }
+    int larg = largest(arr, n);
+    cout << "largest element" << " " << larg << endl;
+    return 0;
+}
