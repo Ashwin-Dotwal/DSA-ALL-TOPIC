@@ -1,23 +1,34 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
 using namespace std;
-int main () {
-    vector<int>arr{5,6,2,7,1,3};
-    int n= arr.size();
 
-    //selection sort
-    for(int round=1;round<n;round++){
-       
-        for(int j=0;j<n-round;j++){
-            if(arr[j]>arr[j+1]){ 
-        swap(arr[j],arr[j+1]);
+void bublesort(int arr[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+            }
         }
     }
-    
-    }
-    for (int i=0;i<n;i++)
+}
+
+void print(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
     {
-        cout<<arr[i]<<" ";
-    }cout<<endl;
-    
+        cout << arr[i] << " ";
+        cout << endl;
+    }
+}
+int main()
+{
+
+    int n = 5;
+    int arr[] = {5, 1, 9, 2, 7};
+    bublesort(arr, n);
+    print(arr, n);
+    return 0;
 }
