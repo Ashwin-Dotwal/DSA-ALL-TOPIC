@@ -1,37 +1,22 @@
 #include <iostream>
-#include <string>
 using namespace std;
-void printfibonacci(int n)
-{
-
-  int a = 5;
-  int b = 6;
-
-  // cout << "fibbonacci series up to " << n << "terms";
-
-  for (int i = 0; i < n; i++)
-  {
-    cout << a << " ";
-    int next = a + b;
-    a = b;
-    b = next;
-  }
-}
 
 int main()
 {
+  int n, a = 0, b = 1, nextTerm = 0;
 
-  int n;
-
-  cout << "enter number" << endl;
+  cout << "Enter the number of terms: ";
   cin >> n;
-  if (n <= 1)
+
+  cout << "Fibonacci Series: ";
+
+  for (int i = 1; i <= n; ++i)
   {
-    cout << "pleace enter a positive integer " << endl;
+    cout << a << " ";
+    nextTerm = a + b;
+    a = b;
+    b = nextTerm;
   }
-  else
-  {
-    printfibonacci(n);
-  }
+
   return 0;
 }
