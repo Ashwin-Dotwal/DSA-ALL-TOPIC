@@ -16,7 +16,6 @@ public:
     right = NULL;
   }
 };
-
 node *buildtree()
 {
   int data;
@@ -27,21 +26,16 @@ node *buildtree()
   {
     return NULL;
   }
-
-  // code start here
-  //  step A B C
+  // step A B C
   node *root = new node(data);
 
   cout << "enter data for left part of " << data
        << "node" << endl;
-
   root->left = buildtree();
 
   cout << "enter data for right part of " << data
        << "node" << endl;
-
   root->right = buildtree();
-
   return root;
 }
 // levelorderytraversel
@@ -50,7 +44,6 @@ void levelordertraversal(node *root)
   queue<node *> q;
   // initially
   q.push(root);
-  q.push(NULL);
 
   while (!q.empty())
   {
@@ -58,39 +51,54 @@ void levelordertraversal(node *root)
     node *temp = q.front();
     // B
     q.pop();
-
-    if (temp == NULL)
+    // c
+    cout << temp->data << " ";
+    // D
+    if (temp->left)
     {
-      cout << endl;
-      if (!q.empty())
-      {
-        q.push(NULL);
-      }
+      q.push(temp->left);
     }
-    else
+    if (temp->right)
     {
-      // c
-      cout << temp->data << " ";
-      // D
-      if (temp->left)
-      {
-        q.push(temp->left);
-      }
-      if (temp->right)
-      {
-        q.push(temp->right);
-      }
+      q.push(temp->right);
     }
   }
+}
+
+int height(node *root)
+{
+  if (root == NULL)
+    return 0;
+
+  int leftheight = height(root->left);
+
+  int rightheight = height(root->right);
+
+  int ans = max(leftheight, rightheight) + 1;
+
+  return ans;
+}
+
+int diameter(node *root)
+{
+  if (root == NULL)
+  {
+    return 0;
+  }
+  int opt1 = diameter(root->left);
+  int opt2 = diameter(root->right);
+  int opt3 = height(root->left) + height(root->right);
+
+  int ans = max(opt1, max(opt2, opt3));
+
+  return ans;
 }
 
 int main()
 {
   node *root = NULL;
-
   root = buildtree();
-
   levelordertraversal(root);
-
+  cout << "height" << height(root) << endl;
   return 0;
 }
