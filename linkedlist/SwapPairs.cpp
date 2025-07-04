@@ -7,7 +7,8 @@ i // input: head = [1,2,3,4]
 public:
   ListNode *swapPairs(ListNode *head)
   {
-    if (head == NULL || head->next == NULL)
+    if (head == NULL || head->next == 
+      NULL)
     {
       return head;
     }

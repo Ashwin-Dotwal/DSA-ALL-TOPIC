@@ -18,7 +18,7 @@ int maxProfit(vector<int> &arr)
       }
     }
   }
-
+  
   return maxPro;
 }
 
