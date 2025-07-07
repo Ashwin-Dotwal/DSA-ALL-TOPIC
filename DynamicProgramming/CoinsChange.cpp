@@ -28,6 +28,14 @@ public:
   {
     vector<int> dp(amount + 1, -1);
     int ans = solveMemo(coins, amount, dp);
-    return (ans == INT_MAX) ? -1 : ans;
+
+    if (ans == INT_MAX)
+    {
+      return -1;
+    }
+    else
+    {
+      return ans;
+    }
   }
 };
