@@ -12,8 +12,7 @@ public:
             else
                 neg.push_back(nums[i]);
             }
-        
-        for(int i=0;i<nums.size()/2;i++){
+           for(int i=0;i<nums.size()/2;i++) {
             nums[2*i]=pos[i];
             nums[2*i+1]=neg[i];
     
