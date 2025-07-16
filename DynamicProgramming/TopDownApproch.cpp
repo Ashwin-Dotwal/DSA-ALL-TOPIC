@@ -1,22 +1,20 @@
-class Solution
-{
+class Solution {
 public:
-  int climbStairs(int n, unordered_map<int, int> &memo)
-  {
-    if (n == 0 || n == 1)
-    {
-      return 1;
+    int solve(int n,vector<int> &dp){
+        //base case
+        if(n<=2)
+          return n;
+        
+        if(dp[n]!=-1) 
+          return dp[n]; 
+        
+        dp[n]=solve(n-1,dp)+solve(n-2,dp);
+        return dp[n];
     }
-    if (memo.find(n) == memo.end())
-    {
-      memo[n] = climbStairs(n - 1, memo) + climbStairs(n - 2, memo);
+    int climbStairs(int n) {
+        if(n<=2)
+         return n;
+        vector<int> dp(n+1,-1);
+        return solve(n,dp);
     }
-    return memo[n];
-  }
-
-  int climbStairs(int n)
-  {
-    unordered_map<int, int> memo;
-    return climbStairs(n, memo);
-  }
 };
